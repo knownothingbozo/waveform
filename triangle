@@ -1,0 +1,39 @@
+import math
+import sympy as sym
+import matplotlib.pyplot as plt
+import numpy as np
+from IPython.core.interactiveshell import InteractiveShell
+InteractiveShell.ast_node_interactivity = 'all'
+
+fig, axs = plt.subplots()
+axs.clear()
+
+## Variables that define the wave
+start = 0.0   
+stepnumber = 20000 
+end = 10.0    
+##
+
+
+def triwave(start, end, stepnumber):
+    x = np.linspace(start, end, stepnumber)
+    y = []
+    k = start + 1
+    j = 0
+    step = (end - start)/ stepnumber
+
+    for i in x:
+        if i <= k:
+            y.append(j)
+            j += step
+        elif i <= k+1 and i >= k:
+            y.append(j)
+            j -= step
+        else:
+            k += 1
+            y.append(j)
+            k += 1
+    return x, y
+
+x, y = triwave(start, end, stepnumber)
+axs.plot(x, y)
