@@ -19,7 +19,7 @@ amplitude = 4
 direction = 1
 ##
 
-def sawchomper(start, end, stepnumber, period, amplitude, direction):
+def triangle(start, end, stepnumber, period, amplitude, direction):
     x = np.linspace(start, end, stepnumber)
     y = []
 #     print(x)
